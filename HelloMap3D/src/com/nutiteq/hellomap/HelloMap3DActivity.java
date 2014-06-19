@@ -1,5 +1,6 @@
 package com.nutiteq.hellomap;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -10,6 +11,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.DisplayMetrics;
 
 import com.nutiteq.MapView;
@@ -18,8 +20,10 @@ import com.nutiteq.components.Components;
 import com.nutiteq.components.MapPos;
 import com.nutiteq.components.Options;
 import com.nutiteq.geometry.Marker;
+import com.nutiteq.layers.raster.GdalMapLayer;
 import com.nutiteq.log.Log;
 import com.nutiteq.projections.EPSG3857;
+import com.nutiteq.projections.EPSG4326;
 import com.nutiteq.projections.Projection;
 import com.nutiteq.rasterdatasources.HTTPRasterDataSource;
 import com.nutiteq.rasterdatasources.RasterDataSource;
@@ -75,7 +79,16 @@ public class HelloMap3DActivity extends Activity {
 
         RasterLayer mapLayer = new RasterLayer(dataSource, 0);
 
-        mapView.getLayers().setBaseLayer(mapLayer);
+        //mapView.getLayers().setBaseLayer(mapLayer);
+        GdalMapLayer gdalLayer = null;
+        
+		try {
+			gdalLayer = new GdalMapLayer(new EPSG4326(), 0, 18, 9991, Environment.getExternalStorageDirectory().getPath()+"/trailscribe-nutiteq/samplemap1.tif", mapView, true);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        mapView.getLayers().setBaseLayer(gdalLayer);
 
         adjustMapDpi();
         

@@ -1,3 +1,14 @@
+# Nutiteq Demo for CMU Practicum TrailScribe
+
+Find changes to the sample code in project AdvancedMap3D > RasterFileMapActivity.java
+
+====
+
+Isil Demir, isildemir.id@gmail.com
+
+
+# Nutiteq
+
 This is a demo project for **Nutiteq 3D Android mapping SDK**. Nutiteq SDK is a replacement for Google Maps API (MapView) for Android, so it has all your usual mapping SDK features (map panning, vector/raster overlays etc) plus some extras: 
 * 2.5/3D view: map tilting, rotating and 3D models
 * offline maps (MBTiles, persistent caching etc)
