@@ -79,16 +79,18 @@ public class HelloMap3DActivity extends Activity {
 
         RasterLayer mapLayer = new RasterLayer(dataSource, 0);
 
-        //mapView.getLayers().setBaseLayer(mapLayer);
-        GdalMapLayer gdalLayer = null;
-        
-		try {
-			gdalLayer = new GdalMapLayer(new EPSG4326(), 0, 18, 9991, Environment.getExternalStorageDirectory().getPath()+"/trailscribe-nutiteq/samplemap1.tif", mapView, true);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        mapView.getLayers().setBaseLayer(gdalLayer);
+        mapView.getLayers().setBaseLayer(mapLayer);
+//        // Begin Isil
+//        GdalMapLayer gdalLayer = null;
+//        
+//		try {
+//			gdalLayer = new GdalMapLayer(new EPSG4326(), 0, 18, 9991, Environment.getExternalStorageDirectory().getPath()+"/trailscribe-nutiteq/samplemap1.tif", mapView, true);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//        mapView.getLayers().setBaseLayer(gdalLayer);
+//        // End Isil
 
         adjustMapDpi();
         
